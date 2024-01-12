@@ -1,0 +1,2 @@
+# MauiAppCollectionViewHorizontal
+CollectionView Horizontal Demo
