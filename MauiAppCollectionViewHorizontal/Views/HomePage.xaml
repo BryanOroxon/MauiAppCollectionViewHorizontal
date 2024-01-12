@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCollectionViewHorizontal.Views.HomePage"
+             xmlns:model="clr-namespace:MauiAppCollectionViewHorizontal.Models"
+             Title="Horizontal ScrollView">
+    <VerticalStackLayout>
+        <CollectionView>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type model:Pet}">
+                    <model:Pet
+                        Name="Stevie Girl"
+                        Image="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47852639/1/?bust=1589792883"
+                        Location="Mission, TX" />
+                    <model:Pet
+                        Name="Mars"
+                        Image="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/41177233/3/?bust=1589792859"
+                        Location="Mission, TX" />
+                    <model:Pet
+                        Name="Lady"
+                        Image="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47636387/1/?bust=1589811913"
+                        Location="Corpus Christi, TX" />
+
+                    <model:Pet
+                        Name="Elaine"
+                        Image="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47902423/1/?bust=1588436009"
+                        Location="Corpus Christi, TX" />
+                    <model:Pet
+                        Name="Lily"
+                        Image="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47721715/2/?bust=1589826464"
+                        Location="South Padre Island, TX" />
+                    <model:Pet
+                        Name="Onyx"
+                        Image="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47041892/2/?bust=1589826603"
+                        Location="South Padre Island, TX" />
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Pet">
+                    <Border BackgroundColor="White"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Stroke="#6600FF"
+                        StrokeThickness="10"
+                        StrokeShape="RoundRectangle 20 40 40 20">
+                        <VerticalStackLayout Padding="10">
+                            <Image
+                    Aspect="AspectFill"
+                    HeightRequest="100"
+                    Source="{Binding Image}"
+                    WidthRequest="100" />
+                            <Label VerticalOptions="Center" TextColor="Gray">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="{}{0} | {1}">
+                                        <Binding Path="Name" />
+                                        <Binding Path="Location" />
+                                    </MultiBinding>
+                                </Label.Text>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
